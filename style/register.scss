@@ -1,0 +1,41 @@
+.form-registrazione{
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 1px solid black;
+    margin: auto;
+    border-radius: 25px;
+    width: 400px;
+    height: auto;
+}
+
+body{
+    background-color: rgb(35, 35, 35);
+    // background-image: ulr("https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80");
+}
+
+span{
+    color: rgb(75, 183, 255);
+}
+
+input{
+    border-radius: 5px;
+    padding: .5rem;
+    outline: none;
+    border: 1px solid black;
+}
+
+form{
+    position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a{
+    text-decoration: none;
+}
+
+.container-generale{
+    background-image: url("https://images.unsplash.com/photo-1628771065518-0d82f1938462?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    background-color: black;
+}
