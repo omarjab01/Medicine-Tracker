@@ -75,14 +75,14 @@
                                         <img src='https://media.istockphoto.com/vectors/cough-syrup-color-icon-common-cold-aid-throat-pain-cure-medication-vector-id1223421493?k=20&m=1223421493&s=612x612&w=0&h=xWykBnLB5WY1rr40dl8oANrOvff1O_BZ0zYpvgylAEE=' height='80px' class='mb-3'>
                                         <h6 class='text-center'>$row[dosaggio] Mg</h6>
                                     </div>
-                                    <div class=ìfrequenza-card ms-5ì>
+                                    <div class='frequenza-card ms-5'>
                                         <img src='https://www.obsidiansecurity.com/wp-content/uploads/2020/10/cal-icon.png'  height='80px' class='mb-3'>
                                         <h6 class='text-center'>$row[frequenza] Times a Week</h6>
                                     </div>
                                 </div>
                                 <div class='bottoni-card'>
-                                    <button class='btn link'>Modifica</button>
-                                    <button class='btn btn-danger'>Elimina</button>
+                                    <a class='btn link' href='update.php?id=$row[ID_Medicina]'>Modifica</a>
+                                    <a class='btn btn-danger'>Elimina</a>
                                     
                                 </div>
                             </div>
@@ -128,9 +128,45 @@
             </div>
         </div>
 
+        <div class="modal" tabindex="-1" id="edit-modal">
+            <div class="modal-dialog">
+                <form class="modal-content" action="./backend/insert.php" method="POST">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Medicine</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="nome-medicina d-flex flex-column mb-2">
+                            <label for="nome">Medicine Name</label>
+                            <input type="text" name="nome-medicina" placeholder="What's the medicine name?">
+                        </div>
+                        <div class="dosaggio d-flex flex-column mb-2">
+                            <label for="dosaggio">Dosage</label>
+                            <input type="number" name="dosaggio" id="" placeholder="Dosage">
+                        </div>
+                        <div class="frequenza d-flex flex-column">
+                            <label for="frequenza">Weekly Frequency</label>
+                            <input type="number" name="frequenza" id="" placeholder="Frequency">
+                        </div>
+                        <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="id-utente">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
 
     <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="script/script.js"></script>
 </body>
 </html>
