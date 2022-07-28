@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="style/main.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <div class="container-sm">
+    <div class="container-full p-4">
         <div class="navbar my-2">
             <div class="utente-loggato">
                 <h3>Hello, <?php echo $_SESSION['nome'] ?>👋 </h3>
@@ -35,12 +35,13 @@
         </div>
         <div class="title d-flex flex-row justify-content-between mt-5 align-items-center">
             <h5>Your Medicines</h5>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#popupInput">Add medicine</button>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#popupInput">Add medicine</button>
         </div>
         <hr>
 
 
-        <div class="medicine">
+        <div class="medicine container-full">
+            <div class="row w-100">
             <?php
 
                 $servername = "localhost";
@@ -65,8 +66,8 @@
 
                 while($row = $result->fetch_assoc()){
                     echo "
-                        <div class='card mb-4'>
-                            <div class='card-header bg-primary bg-gradient'>
+                        <div class='card mb-4 col-xl-3 col-sm-12 col-md-6'>
+                            <div class='card-header bg-success'>
                                 <h5 class='card-title text-white'>$row[nomeMedicina]</h5>
                             </div>
                             <div class='card-body d-flex flex-row justify-content-between'>
@@ -82,8 +83,11 @@
                                 </div>
                                 <div class='bottoni-card'>
                                     <a class='btn link' href='update.php?id=$row[ID_Medicina]'>Modifica</a>
-                                    <a class='btn btn-danger'>Elimina</a>
-                                    
+
+                                    <form action='./backend/delete.php' method='POST' >
+                                        <button class='btn btn-danger'>Elimina</button>
+                                        <input type='hidden' value='$row[ID_Medicina]' name='id-med'>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -91,6 +95,7 @@
                 }
 
             ?>
+            </div>
 
         </div>
 
